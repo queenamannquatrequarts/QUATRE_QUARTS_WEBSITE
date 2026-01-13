@@ -4,13 +4,19 @@
   padding: 0;
 }
 
-/* ================= NAV BAR ================= */
+body {
+  font-family: 'Libre Baskerville', serif;
+  background-color: black;
+  color: white;
+}
+
 
 .nav-bar {
   position: fixed;
   top: 0px;
   width: 100%;
   padding: 20px;
+  padding-right: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,14 +44,11 @@
   font-weight: 0;
   font-size: 18px;
   transition: color 0.3s;
-  font-family: 'Libre Baskerville', serif;
 }
 
 .nav-bar a:hover {
   color: rgb(129, 146, 255);
 }
-
-/* ================= BODY ================= */
 
 body {
   margin: 0px;
@@ -53,8 +56,6 @@ body {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
 }
-
-/* ================= HERO ================= */
 
 .hero-section {
   display: flex;
@@ -82,24 +83,22 @@ body {
   font-size: 80px;
 }
 
-.hero-section .black-btn a {
+.black-btn a {
   display: inline-block;
-  margin-top: 35px;
   padding: 15px 70px;
   font-size: 20px;
   color: white;
-  background-color: rgba(0, 0, 0);
+  background-color: rgb(0, 0, 0);
   text-decoration: none;
   font-family: 'IM Fell English', serif;
   transition: 0.3s, color 0.3s;
 }
 
-.hero-section .black-btn a:hover {
+.black-btn a:hover {
   background-color: rgba(11, 8, 84);
   color: rgb(255, 255, 255);
 }
 
-/* ================= STORY 1 ================= */
 
 .story-1 {
   display: flex;
@@ -116,12 +115,10 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #000000;
-  font-family: 'Libre Baskerville', serif;
   color: #ffffff;
 }
 
 .story-1 h2 {
-  font-family: 'Libre Baskerville', serif;
   font-size: 50px;
   margin-bottom: 10px;
 }
@@ -142,8 +139,8 @@ body {
 
 .story-1 .story-image-1 img {
   margin: 30px;
-  width: 500px;
-  height: auto;
+  width: auto;
+  height: 600px;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgb(255, 255, 255);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -153,8 +150,6 @@ body {
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
-
-/* ================= STORY 2 ================= */
 
 .story-2 {
   display: flex;
@@ -171,12 +166,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Libre Baskerville', serif;
   color: white;
 }
 
 .story-2 h2 {
-  font-family: 'Libre Baskerville', serif;
   font-size: 50px;
   margin-bottom: 10px;
 }
@@ -217,7 +210,6 @@ body {
   padding: 40px 20px;
   background-color: black;
   color: white;
-  font-family: 'Libre Baskerville', serif;
   gap: 20px;
 }
 
@@ -241,12 +233,71 @@ body {
 }
 
 
+.title1 {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: white;
+  font-size: 20px;
+  gap: 50px;
+}
+
+.download .black-btn a {
+  background-color: rgba(0, 38, 255, 0.9);
+  border-radius: 15px;
+}
+
+.download .black-btn a:hover{
+  background-color:  rgba(11, 8, 84);
+}
+
+.different-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  gap: 30px;
+  padding: 40px 20px;
+  background-color: black;
+}
+
+
+.big-btn a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  font-size: 35px;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-family: 'IM Fell English', serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.big-btn a:hover {
+  background-color: rgba(11, 8, 84, 0.9);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+}
+
 
 footer {
   background-color: black;
   color: white;
   padding: 40px 20px;
-  font-family: 'Libre Baskerville', serif;
 }
 
 .contact {
@@ -299,7 +350,6 @@ footer form textarea {
   border: 1px solid #fff;
   background-color: #111;
   color: #fff;
-  font-family: 'Libre Baskerville', serif;
 }
 
 footer form input:focus,
@@ -343,4 +393,108 @@ footer > div a {
 
 footer > div a:hover {
   color: rgb(3, 38, 198);
+}
+
+.The-Team-title,
+.the-members-title {
+    text-align: center;
+    font-size: 40px;
+    margin: 40px 0 20px;
+    color: rgb(255, 255, 255);
+    font-family: 'IM Fell English', serif;
+}
+
+.The-Team-content {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.8;
+    padding: 0 20px;
+    color: white;
+}
+
+.team-photo {
+    display: block;
+    margin: 30px auto;
+    max-width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(129, 146, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+}
+
+.the-members-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background-color: #000000;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member:hover {
+    transform: translateY(-8px);
+}
+
+.member-photo {
+    width: 200px;
+    height: 200px;
+    padding: 4px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.member h3 {
+    font-size: 22px;
+    color: rgb(129, 146, 255);
+    margin-bottom: 12px;
+    font-family: 'IM Fell English', serif;
+}
+
+.member p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+}
+
+
+.member-child-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 12px;
+  width: 800px;
+  padding: 10px 10px;
+}
+.member-child-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  gap: 12px;
+  width: 800px;
+  padding: 10px 10px;
 }
