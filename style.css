@@ -260,12 +260,18 @@ body {
 
 .different-buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 
   gap: 30px;
   padding: 40px 20px;
   background-color: black;
+}
+.first-btn, .second-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 
