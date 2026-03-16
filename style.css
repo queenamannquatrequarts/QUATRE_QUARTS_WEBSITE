@@ -1,26 +1,55 @@
+/*==================== RESET ====================*/
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --nav-height: 76px;
+  --nav-padding-x: 30px;
+  --nav-bg: rgba(0, 0, 0, 0.75);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*==================== ROOT VARIABLES ====================*/
+
+:root {
+  --nav-height: 76px;
+  --nav-padding-x: 30px;
+  --nav-bg: rgba(0,0,0,0.75);
+}
+
+/*==================== GLOBAL BODY ====================*/
+
 body {
+  padding-top: 76px;
   font-family: 'Libre Baskerville', serif;
   background-color: black;
   color: white;
 }
 
+/*==================== NAVIGATION ====================*/
 
 .nav-bar {
   position: fixed;
-  top: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  padding: 20px;
-  padding-right: 100px;
+  height: var(--nav-height);
+  padding: 0 var(--nav-padding-x);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0,0,0,0.75);
+  background-color: var(--nav-bg);
   border-bottom: 1px solid white;
   z-index: 1000;
 }
@@ -30,32 +59,82 @@ body {
   border-radius: 30px;
 }
 
+.nav-bar a:hover {
+  color: rgb(129, 146, 255);
+}
+
 .nav-menu {
   list-style: none;
   display: flex;
   gap: 100px;
   margin: 0;
   padding: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+
 }
 
 .nav-menu a {
   color: aliceblue;
   text-decoration: none;
-  font-weight: 0;
+  font-weight: bold;
   font-size: 18px;
   transition: color 0.3s;
 }
 
-.nav-bar a:hover {
-  color: rgb(129, 146, 255);
+/*==================== NAV TOGGLE (on mobile) ====================*/
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  position: relative;
 }
 
-body {
-  margin: 0px;
-  padding-top: 110px;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+.nav-toggle span {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-toggle span::before {
+  top: -8px;
+}
+
+.nav-toggle span::after {
+  top: 8px;
+}
+
+.nav-toggle[aria-expanded="true"] span {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] span::before {
+  transform: translate(-50%, 8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span::after {
+  transform: translate(-50%, -8px) rotate(-45deg);
+}
+
+/*==================== HERO SECTION ====================*/
 
 .hero-section {
   display: flex;
@@ -69,19 +148,22 @@ body {
 }
 
 .hero-section .right-text {
+  max-width: 520px;
   padding: 100px;
   display: flex;
-  text-align: flex-end;
+  text-align: right;
   flex-direction: column;
-  color:white;
-  font-family: 'IM fell english', serif;
-  font-size: 30px ;
+  color: white;
+  font-family: 'IM Fell english', serif;
+  font-size: 30px;
   margin-right: 80px;
 }
 
 .title {
   font-size: 80px;
 }
+
+/*==================== BUTTONS ====================*/
 
 .black-btn a {
   display: inline-block;
@@ -99,23 +181,28 @@ body {
   color: rgb(255, 255, 255);
 }
 
+/*==================== STORY SECTION (part 1) ====================*/
 
 .story-1 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  padding:40px;
+  gap: 40px;
+  padding: 40px;
   background-color: rgb(0, 0, 0);
 }
 
 .story-1 .story-text-1 {
-  width: 610px;
-  height: 600px;
+  max-width: 660px;
+  width: 100%;
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #000000;
   color: #ffffff;
+  padding: 20px;
 }
 
 .story-1 h2 {
@@ -139,8 +226,10 @@ body {
 
 .story-1 .story-image-1 img {
   margin: 30px;
+  max-width: 100%;
+  max-height: 600px;
   width: auto;
-  height: 600px;
+  height: auto;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgb(255, 255, 255);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -151,8 +240,11 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/*==================== STORY SECTION (part 2) ====================*/
+
 .story-2 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   padding: 40px;
@@ -161,17 +253,18 @@ body {
 }
 
 .story-text-2 {
-  width: 610px;
-  height: 500px;
+  max-width: 660px;
+  width: 100%;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
+  padding: 20px;
 }
 
 .story-2 h2 {
   font-size: 50px;
-  margin-bottom: 10px;
 }
 
 .story-2 p {
@@ -190,7 +283,8 @@ body {
 
 .story-image-2 img {
   margin: 30px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 6px 20px white;
@@ -201,6 +295,8 @@ body {
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
+/*==================== MUSIC ====================*/
 
 
 .music {
@@ -231,6 +327,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
 }
+
+/*==================== DOWNLOAD ====================*/
 
 
 .title1 {
@@ -268,12 +366,12 @@ body {
   padding: 40px 20px;
   background-color: black;
 }
+
 .first-btn, .second-btn {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
-
 
 .big-btn a {
   display: flex;
@@ -299,6 +397,7 @@ body {
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
 }
 
+/*==================== FOOTER ====================*/
 
 footer {
   background-color: black;
@@ -401,6 +500,15 @@ footer > div a:hover {
   color: rgb(3, 38, 198);
 }
 
+/*==================== SCROLL ====================*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*==================== TEAM ====================*/
+
+
 .The-Team-title,
 .the-members-title {
     text-align: center;
@@ -447,16 +555,25 @@ footer > div a:hover {
 
 .member {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   background-color: #000000;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 30px 60px;
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+}
+
+.member-photo {
+  flex: 0 0 200px;
+}
+
+.member-child-left,
+.member-child-right {
+  flex: 1 1 320px;
+  width: auto;
 }
 
 .member:hover {
@@ -485,22 +602,280 @@ footer > div a:hover {
     color: white;
 }
 
-
 .member-child-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
   gap: 12px;
-  width: 800px;
   padding: 10px 10px;
+  width: 100%;
+  max-width: 800px;
 }
+
 .member-child-right {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: right;
   gap: 12px;
-  width: 800px;
   padding: 10px 10px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/*==================== RESPONSIVE MEDIA QUERIES ====================*/
+
+/*1024px Tablet*/
+
+@media (max-width: 1024px) {
+  .nav-bar {
+    padding: 18px 24px;
+  }
+
+  .nav-bar img {
+    height: 50px;
+  }
+
+  .nav-menu {
+    gap: 40px;
+  }
+
+  .hero-section .right-text {
+    padding: 60px 40px;
+    margin-right: 40px;
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+
+  .story-1 .story-text-1,
+  .story-2 .story-text-2 {
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+
+  .story-1 .story-image-1 img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .story-image-2 img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+
+  .music video {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+  }
+
+  .contact {
+    gap: 60px;
+  }
+
+  .member {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+/* 768px Mobile */
+
+@media (max-width: 768px) {
+
+  .nav-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: block;
+    z-index: 1100;
+  }
+
+  body {
+    padding-top: 130px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+
+    overflow: hidden;
+
+
+    max-height: 0;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 20px; /* keep closed nav tight */
+    text-align: right; /* keep link text aligned when closing */
+  }
+
+  body.nav-open .nav-menu {
+    max-height: 320px;
+    padding: 30px 20px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu a {
+    padding: 10px 0;
+    display: block;
+  }
+
+  .nav-bar img {
+    height: 50px;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .member-photo {
+    order: -1;
+  }
+
+  .hero-section {
+    height: auto;
+  }
+
+  .hero-section .right-text {
+    padding: 40px 20px;
+    margin-right: 0;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .story-1,
+  .story-2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+  }
+
+  .story-1 .story-text-1,
+  .story-2 .story-text-2 {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .story-1 .story-image-1 img,
+  .story-image-2 img {
+    margin: auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+  }
+
+  .story-1 .story-text-1,
+  .story-2 .story-text-2 {
+    order: 1;
+  }
+
+  .story-1 .story-image-1,
+  .story-2 .story-image-2 {
+    order: 2;
+  }
+
+  .music h2 {
+    font-size: 38px;
+  }
+
+  .download,
+  .different-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .big-btn a {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .contact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .contact-1,
+  .contact-info {
+    width: 100%;
+  }
+
+  .member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .member-child-left,
+  .member-child-right {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .member-photo {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* 480px Small Mobile */
+
+@media (max-width: 480px) {
+  
+  body {
+    padding-top: 76px;
+  }
+
+  .nav-bar {
+    padding: 1px 16px;
+  }
+
+  .nav-menu {
+    gap: 20px;
+  }
+
+  .hero-section .right-text {
+    padding: 30px 16px;
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .story-1 p,
+  .story-2 p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  footer form button {
+    font-size: 16px;
+  }
 }
