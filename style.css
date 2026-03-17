@@ -367,7 +367,7 @@ body {
   background-color: black;
 }
 
-.first-btn, .second-btn {
+.first-btn, .second-btn, .third-btn {
   display: flex;
   flex-direction: column;
   gap: 50px;
