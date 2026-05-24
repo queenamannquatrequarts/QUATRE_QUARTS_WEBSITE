@@ -345,6 +345,50 @@ body {
   text-align: center;
 }
 
+.download-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dl-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 40px;
+  background-color: black;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.dl-btn:hover {
+  border-color: white;
+  transform: translateY(-4px);
+}
+
+.dl-label {
+  font-family: 'IM Fell English', serif;
+  font-size: 26px;
+}
+
+.dl-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
 .download {
   display: flex;
   align-items: center;
@@ -373,6 +417,7 @@ body {
   padding: 40px 20px;
   background-color: black;
 }
+
 
 .first-btn, .second-btn, .third-btn, .fourth-btn {
   display: flex;
