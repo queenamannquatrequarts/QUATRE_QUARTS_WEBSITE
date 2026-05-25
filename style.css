@@ -359,6 +359,11 @@ body {
   justify-content: center;
   gap: 20px;
 }
+.report-pair {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
 
 .dl-btn {
   display: flex;
