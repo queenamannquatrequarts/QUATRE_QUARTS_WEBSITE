@@ -359,11 +359,7 @@ body {
   justify-content: center;
   gap: 20px;
 }
-.report-pair {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
+
 
 .dl-btn {
   display: flex;
@@ -414,13 +410,18 @@ body {
 }
 
 .different-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 40px 20px;
-  background-color: black;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.report-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 
@@ -720,7 +721,10 @@ html {
     height: auto;
     padding: 20px;
   }
-
+  .different-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
   .story-1 .story-image-1 img {
     height: auto;
     max-width: 100%;
@@ -828,6 +832,10 @@ html {
     font-size: 48px;
     line-height: 1.1;
   }
+  .different-buttons {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
 
   .story-1,
   .story-2 {
@@ -906,7 +914,6 @@ html {
     height: 220px;
   }
 }
-
 /* 480px Small Mobile */
 
 @media (max-width: 480px) {
